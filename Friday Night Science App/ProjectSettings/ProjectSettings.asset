@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 069816ba10e414d498db3fbf59bea53a
+  productGUID: 2a8bca10725dd864293fd78bc7017f4d
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -110,7 +110,7 @@ PlayerSettings:
   videoMemoryForVertexBuffers: 0
   psp2PowerMode: 0
   psp2AcquireBGM: 1
-  vulkanEnableSetSRGBWrite: 0
+  vulkanEnableSetSRGBWrite: 1
   vulkanUseSWCommandBuffers: 0
   m_SupportedAspectRatios:
     4:3: 1
@@ -125,7 +125,6 @@ PlayerSettings:
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
   xboxOneEnable7thCore: 0
-  isWsaHolographicRemotingEnabled: 0
   vrSettings:
     cardboard:
       depthFormat: 0
@@ -153,6 +152,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Standalone: com.Company.ProductName
+    iOS: com.BulldogDevelopment.FridayNightScienceApp
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
@@ -618,8 +618,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 2e409bba-361f-42db-8cb3-0a932c99b434
-  projectName: Friday Night Science App
+  cloudProjectId: 41e1eb93-2b0c-419d-b52a-be7b3d58a858
+  projectName: Friday Night Science App (1)
   organizationId: hylianadventurer
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
