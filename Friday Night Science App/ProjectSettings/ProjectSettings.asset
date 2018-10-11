@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 069816ba10e414d498db3fbf59bea53a
+  productGUID: 1f272bbfb28f01e4bbccad781629a1df
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Friday Night Science App
+  productName: Quiz Module
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -618,9 +618,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 2e409bba-361f-42db-8cb3-0a932c99b434
-  projectName: Friday Night Science App
-  organizationId: hylianadventurer
+  cloudProjectId: b87a2a9c-8d39-4ee2-aad7-82158ed4b283
+  projectName: Quiz Module
+  organizationId: zacharycwillson
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
