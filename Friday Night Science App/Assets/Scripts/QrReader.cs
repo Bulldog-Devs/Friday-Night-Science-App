@@ -1,58 +1,86 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using ZXing;
 using ZXing.QrCode;
 
+public class QRReader : MonoBehaviour
+{
 
-public class QrReader : MonoBehaviour {
-    private WebCamTexture camTexture;
-    private Rect displayScreen;
-    private int screenWidth;
-    private int screenHeight;
+    private bool camAvailable;
+    private WebCamTexture backCam;
+    private Texture DefaultBackground;
+
     private int cooldown = 0;
-   
-    // Use this for initialization
-    void Start () {
-        screenWidth = Screen.width;
-        screenHeight = Screen.height;
 
-        displayScreen = new Rect(0, 0, screenWidth, screenHeight);
-        camTexture = new WebCamTexture();
-        camTexture.requestedHeight = Screen.height;
-        camTexture.requestedWidth = Screen.width;
-        if(camTexture != null)
-        {
-            camTexture.Play();
-        }
-	}
+    public RawImage background;
+    public AspectRatioFitter fit;
 
-    public void Update()
+    private void Start()
     {
-        if (cooldown == 0) {
+        DefaultBackground = background.texture;
+        WebCamDevice[] devices = WebCamTexture.devices;
+
+        if (devices.Length == 0)
+        {
+            Debug.Log("No camera detected");
+            camAvailable = false;
+            return;
+        }
+
+        for (int i = 0; i < devices.Length; i++)
+        {
+            backCam = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
+            if (!devices[i].isFrontFacing)
+            {
+                backCam = new WebCamTexture(devices[i].name, Screen.width, Screen.height);
+            }
+        }
+
+        if (backCam == null)
+        {
+            Debug.Log("Unable to find back camera");
+            return;
+        }
+
+        backCam.Play();
+        background.texture = backCam;
+
+        camAvailable = true;
+    }
+
+    private void Update()
+    {
+        if (!camAvailable){return;}
+
+        fit.aspectRatio = (float)backCam.width / (float)backCam.height;
+
+        float scaleY = backCam.videoVerticallyMirrored ? -1f : 1f;
+        background.rectTransform.localScale = new Vector3(1f, scaleY, 1f);
+
+        int orient = -backCam.videoRotationAngle;
+
+        background.rectTransform.localEulerAngles = new Vector3(0, 0, orient);
+
+        if(cooldown==0)
+        {
             try
             {
                 cooldown = 35;
                 IBarcodeReader barcodeReader = new BarcodeReader();
 
-                // decode frame
-                var result = barcodeReader.Decode(camTexture.GetPixels32(), camTexture.width, camTexture.height);
+                var result = barcodeReader.Decode(backCam.GetPixels32(), backCam.width, backCam.height);
                 if (result != null)
                 {
                     Debug.Log("Text from QR code: " + result.Text);
                 }
-
-            }
-            catch (System.Exception e)
+            } catch (System.Exception e)
             {
                 Debug.LogWarning(e.Message);
             }
         }
-    }
-    public void OnGUI()
-    {
-        // draw the camera stuff on screen
-        GUI.DrawTexture(displayScreen, camTexture, ScaleMode.ScaleToFit);
+        cooldown--;
 
         
     }
