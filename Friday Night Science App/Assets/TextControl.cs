@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class TextControl : MonoBehaviour {
 
-    List<string> questions = new List<string>() {"This is the first question", "This is the second question",
-                                                 "This is the third question", "This is the fourth question",
-                                                 "This is the fifth question"};
+    List<string> questions = new List<string>() {"Nucleic acids are composed of repeating units of?",
+                                                 "A cell membrane is...?",
+                                                 "Which of the following is not part of the metabolic sequence?",
+                                                 "The functional unit of heredity is the...?",
+                                                 "One celled animals are of the phyla...?",
+                                                 "How thick is the crust of the Earth?",
+                                                 "The layer that separates crust from core is the?",
+                                                 "What drives the Earth's internal heat engine?",
+                                                 "New seafloor is created at a...?",
+                                                 "The moon is...?" };
 
-    List<string> correctAnswer = new List<string>() { "1", "1", "1", "1", "1" };
+    List<string> correctAnswer = new List<string>() { "3", "2", "3", "1", "3", "3", "3", "1", "2", "4", };
 
     public Transform resultOBJ;
 
@@ -20,19 +27,32 @@ public class TextControl : MonoBehaviour {
 
     public static string resetText = "n";
 
+    public int catMod = 0;
+
+    public Transform highlightObj;
+
 
 	// Use this for initialization
 	void Start () {
-        //GetComponent<TextMesh> ().text = questions [0];
-		
-	}
+        if(SelectCat.catTopic == "Geology")
+        {
+            catMod = 5;
+        }
+
+        if (SelectCat.catTopic == "Biology")
+        {
+            catMod = 0;
+        }
+        highlightObj.GetComponent<Transform>().position = new Vector3(99, 99, 0);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         if (randomQuestion == -1)
         {
-            randomQuestion = Random.Range(0, 5);
+            randomQuestion = Random.Range(0+catMod, 5+catMod);
         }
         
         if (randomQuestion > -1)
@@ -52,7 +72,26 @@ public class TextControl : MonoBehaviour {
             }
             else if (correctAnswer[randomQuestion] != selectedAnswer)
             {
+                NextButton.resetHighlight = "n";
                 resultOBJ.GetComponent<TextMesh>().text = "Wrong!";
+
+                if(correctAnswer[randomQuestion] == "1")
+                {
+                    highlightObj.GetComponent<Transform>().position = new Vector3(-10.49f, 3.03f, 0);
+                }
+                if (correctAnswer[randomQuestion] == "2")
+                {
+                    highlightObj.GetComponent<Transform>().position = new Vector3(-10.49f, 1, 0);
+                }
+                if (correctAnswer[randomQuestion] == "3")
+                {
+                    highlightObj.GetComponent<Transform>().position = new Vector3(-10.49f, -0.99f, 0);
+                }
+                if (correctAnswer[randomQuestion] == "4")
+                {
+                    highlightObj.GetComponent<Transform>().position = new Vector3(-10.49f, -2.94f, 0);
+                }
+
             }
         }
 

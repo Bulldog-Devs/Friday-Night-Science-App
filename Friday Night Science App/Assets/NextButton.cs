@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NextButton : MonoBehaviour {
 
+    public static string resetHighlight = "n";
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,5 +20,6 @@ public class NextButton : MonoBehaviour {
     {
         TextControl.randomQuestion = -1;
         TextControl.resetText = "y";
+        resetHighlight = "y";
     }
 }   

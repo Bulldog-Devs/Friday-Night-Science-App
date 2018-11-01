@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Text1 : MonoBehaviour {
 
-    List<string> firstChoice = new List<string>() {"First", "Second", "Third", "Fourth", "Fifth"};
+    List<string> firstChoice = new List<string>() {"Amino acids", "permeable", "Photosynthesis", "gene", "Metazoa",
+                                                   "about 4 miles", "magma layer",
+                                                   "radioactivity", "deep-sea trench", "older than the sun" };
 
     // Use this for initialization
     void Start () {
