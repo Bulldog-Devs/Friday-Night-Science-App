@@ -7,19 +7,15 @@ using ZXing.QrCode;
 
 public class QRReader : MonoBehaviour
 {
-
     private bool camAvailable;
     private WebCamTexture backCam;
-    private Texture DefaultBackground;
-
     private int cooldown = 0;
-
     public RawImage background;
     public AspectRatioFitter fit;
+    public QRUIControl control;
 
     private void Start()
     {
-        DefaultBackground = background.texture;
         WebCamDevice[] devices = WebCamTexture.devices;
 
         if (devices.Length == 0)
@@ -46,7 +42,6 @@ public class QRReader : MonoBehaviour
 
         backCam.Play();
         background.texture = backCam;
-
         camAvailable = true;
     }
 
@@ -73,7 +68,9 @@ public class QRReader : MonoBehaviour
                 var result = barcodeReader.Decode(backCam.GetPixels32(), backCam.width, backCam.height);
                 if (result != null)
                 {
-                    Debug.Log("Text from QR code: " + result.Text);
+                    PlayerPrefs.SetString("QRInput", result.Text);
+                    Debug.Log("Text from QR code: " + PlayerPrefs.GetString("QRInput"));
+                    control.LoadScene("Quiz Placeholder");
                 }
             } catch (System.Exception e)
             {
@@ -81,7 +78,5 @@ public class QRReader : MonoBehaviour
             }
         }
         cooldown--;
-
-        
     }
 }
