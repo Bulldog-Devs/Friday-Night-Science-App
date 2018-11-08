@@ -17,6 +17,10 @@ public class TextControl : MonoBehaviour {
 
     List<string> correctAnswer = new List<string>() { "3", "2", "3", "1", "3", "3", "3", "1", "2", "4", };
 
+    List<int> previousQuestions = new List<int>() { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,};
+
+    public int questionNumber = 0;
+
     public Transform resultOBJ;
 
     public static string selectedAnswer;
@@ -27,6 +31,8 @@ public class TextControl : MonoBehaviour {
 
     public static string resetText = "n";
 
+    public static string passQuiz = "n";
+
     public int catMod = 0;
 
     public Transform highlightObj;
@@ -34,12 +40,19 @@ public class TextControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if(SelectCat.catTopic == "Geology")
+
+        randomQuestion = -1;
+        resetText = "y";
+        NextButton.resetHighlight = "y";
+        passQuiz = "n";
+
+
+        if (CatInput.catTopic == "Geology")
         {
             catMod = 5;
         }
 
-        if (SelectCat.catTopic == "Biology")
+        if (CatInput.catTopic == "Biology")
         {
             catMod = 0;
         }
@@ -53,11 +66,25 @@ public class TextControl : MonoBehaviour {
         if (randomQuestion == -1)
         {
             randomQuestion = Random.Range(0+catMod, 5+catMod);
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (randomQuestion != previousQuestions[i])
+                {
+
+                }
+                else
+                {
+                    randomQuestion = -1;
+                }
+            }
         }
         
         if (randomQuestion > -1)
         {
             GetComponent<TextMesh>().text = questions[randomQuestion];
+
+            previousQuestions[questionNumber] = randomQuestion;
         }
         
         //Debug.Log(questions[randomQuestion]);
@@ -65,10 +92,12 @@ public class TextControl : MonoBehaviour {
         if (choiceSelected == "y")
         {
             choiceSelected = "n";
+            questionNumber += 1;
 
             if (correctAnswer[randomQuestion] == selectedAnswer )
             {
                 resultOBJ.GetComponent<TextMesh> ().text = "Correct!";
+                passQuiz = "y";
             }
             else if (correctAnswer[randomQuestion] != selectedAnswer)
             {

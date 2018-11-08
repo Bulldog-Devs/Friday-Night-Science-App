@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NextButton : MonoBehaviour {
 
@@ -18,8 +19,15 @@ public class NextButton : MonoBehaviour {
 
     void OnMouseDown()
     {
-        TextControl.randomQuestion = -1;
-        TextControl.resetText = "y";
-        resetHighlight = "y";
+        if (TextControl.passQuiz == "y")
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        else
+        {
+            TextControl.randomQuestion = -1;
+            TextControl.resetText = "y";
+            resetHighlight = "y";
+        }
     }
 }   
