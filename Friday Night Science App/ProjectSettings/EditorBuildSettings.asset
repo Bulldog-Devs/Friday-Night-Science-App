@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/QuizMain.unity
+    path: Assets/Scenes/QuizMain.unity
     guid: e7584d33251240c468c14f9510383655
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Menu.unity
-    guid: 3317da648db341a45be9c42d4a0b1822
+    path: Assets/Scenes/QRReader.unity
+    guid: dcfb9599087e8a7458961b7f9b7ecea7
+  - enabled: 0
+    path: Assets/Scenes/Map Placeholder.unity
+    guid: ad1d394bcd46367469e0be0ba88b2e55
+  - enabled: 1
+    path: Assets/Scenes/MapMain.unity
+    guid: f8d947abc0befc14e8e45f9b1fd8b7af
   m_configObjects: {}
