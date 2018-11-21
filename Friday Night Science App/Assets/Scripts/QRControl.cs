@@ -27,7 +27,7 @@ public class QRControl : MonoBehaviour {
         mapButton.onClick.AddListener(delegate { backCam.Stop(); game.LoadScene(game.MapScene); });
         manualToggle.onClick.AddListener(delegate { manualPanel.SetActive(true); });
         closePanelButton.onClick.AddListener(delegate { manualPanel.SetActive(false); });
-        enterButton.onClick.AddListener(delegate { backCam.Stop(); game.enterInput(input.text); });
+        enterButton.onClick.AddListener(delegate { backCam.Stop(); game.enterQRInput(input.text); });
 
         //Turn on Camera
         WebCamDevice[] devices = WebCamTexture.devices;
@@ -98,7 +98,7 @@ public class QRControl : MonoBehaviour {
                     PlayerPrefs.SetString(game.QRInput, result.Text);
                     Debug.Log("Text from QR code: " + PlayerPrefs.GetString(game.QRInput));
                     backCam.Stop();
-                    game.LoadScene(game.QuizScene);
+                    game.LoadScene(game.QuizSelectScene);
                 }
             }
             catch (System.Exception e)

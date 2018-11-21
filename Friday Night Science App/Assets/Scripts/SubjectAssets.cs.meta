@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 06866c4b0fab5f74b9fe74f11f2dfaa9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - astrIcon: {fileID: 2800000, guid: ba504506d89f52f41a4ff2a64e5410ed, type: 3}
+  - biolIcon: {fileID: 2800000, guid: 0aba6361e64248f4f914514e40a9cb11, type: 3}
+  - chemIcon: {fileID: 2800000, guid: ca159606d0ef81b428541b5b3eecddd7, type: 3}
+  - geolIcon: {fileID: 2800000, guid: 04cdaabffee204441b5d3c3af6f76a4e, type: 3}
+  - induIcon: {fileID: 2800000, guid: ec41416e251877d4296926950b596541, type: 3}
+  - mathIcon: {fileID: 2800000, guid: f3dd57ab5a16a0146a14aa390653aeb3, type: 3}
+  - physIcon: {fileID: 2800000, guid: a78f11b6c7bd44e42bca8a72fc08d4e2, type: 3}
+  - astrBack: {fileID: 2800000, guid: 5bfc764c7dd87fa459134d2d7d88d510, type: 3}
+  - biolBack: {fileID: 2800000, guid: 36f13bfe02b36bb42838ee60cb746ea0, type: 3}
+  - chemBack: {fileID: 2800000, guid: 25bdfaf19e5843a43b33ddd07f5cf1f1, type: 3}
+  - geolBack: {fileID: 2800000, guid: 583b1103d9c80cc4c95dc40e5307a58c, type: 3}
+  - induBack: {fileID: 2800000, guid: 8e14ec9be60829346a448b8124834d1e, type: 3}
+  - mathBack: {fileID: 2800000, guid: eee341b4b281d0046a30e735abb8edc1, type: 3}
+  - physBack: {fileID: 2800000, guid: 14ec1a8d61b19124eb0e27f871b7d4b1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
