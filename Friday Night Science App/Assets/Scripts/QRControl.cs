@@ -65,7 +65,7 @@ public class QRControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(backCam.isPlaying)
+        if(backCam.isPlaying && backCam != null)
         {
             camAvailable = true;
         }

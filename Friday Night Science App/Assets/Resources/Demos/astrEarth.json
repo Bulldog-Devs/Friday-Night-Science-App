@@ -1,0 +1,6 @@
+{
+  "name" : "Earth",
+  "description" : "You have found Earth!\nKeep exploring for more Planets",
+  "hasQuiz" : false,
+  "customImage" : "Earth"
+}

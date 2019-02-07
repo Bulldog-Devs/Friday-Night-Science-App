@@ -12,7 +12,7 @@ public class SubjectAssets : MonoBehaviour {
     public void Start()
     {
         //Add Subjects
-        subjects.Add(new Subject("Astrology", "astr", astrIcon, astrBack, false));
+        subjects.Add(new Subject("Astronomy", "astr", astrIcon, astrBack, false));
         subjects.Add(new Subject("Biology", "biol", biolIcon, biolBack, true));
         subjects.Add(new Subject("Chemistry", "chem", chemIcon, chemBack, true));
         subjects.Add(new Subject("Geology", "geol", geolIcon, geolBack, false));
@@ -24,17 +24,31 @@ public class SubjectAssets : MonoBehaviour {
     public class Subject
     {
         public string name, ID;
-        public bool hasQuiz;
+        public bool hasDemo;
         public Texture icon, background;
-        public ArrayList demoList;
 
-        public Subject(string name, string ID, Texture icon, Texture background, bool hasQuiz)
+        public Subject(string name, string ID, Texture icon, Texture background, bool hasDemo)
         {
             this.name = name;
             this.ID = ID;
             this.icon = icon;
             this.background = background;
-            this.hasQuiz = hasQuiz;
+            this.hasDemo = hasDemo;
         }
+
+        public Subject(string name, string ID, Texture icon, Texture background)
+        {
+            this.name = name;
+            this.ID = ID;
+            this.icon = icon;
+            this.background = background;
+            this.hasDemo = false;
+        }
+    }
+
+    public class Demo
+    {
+        public string name, description, customImage;
+        public bool hasQuiz;
     }
 }
