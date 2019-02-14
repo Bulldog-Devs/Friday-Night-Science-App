@@ -34,3 +34,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Friday Night Science App/debug.log
+Friday Night Science App/Logs/Packages-Update.log
+Friday Night Science App/ProjectSettings/VFXManager.asset
