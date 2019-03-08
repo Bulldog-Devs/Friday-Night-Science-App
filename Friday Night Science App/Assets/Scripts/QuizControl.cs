@@ -54,7 +54,7 @@ public class QuizControl : MonoBehaviour
         buttons.Add(button2);
         buttons.Add(button3);
         buttons.Add(button4);
-
+        //adds handlers to buttons
         HandleButton(buttons, questions, q.rightAns, true);
         HandleButton(buttons, questions, q.wrongAns1, false);
         HandleButton(buttons, questions, q.wrongAns2, false);
@@ -63,7 +63,7 @@ public class QuizControl : MonoBehaviour
         if (questions.Count != 0) tryAgain.onClick.AddListener(delegate { SetupQuestion(questions); });
     }
 
-    //hello world
+    //method that creates button handler
     public void HandleButton(ArrayList buttons, ArrayList questions, string ans, bool correct)
     {
         Button btn = (Button)buttons[Random.Range(0, buttons.Count - 1)];
@@ -106,7 +106,7 @@ public class QuizControl : MonoBehaviour
         public string question, rightAns, wrongAns1, wrongAns2, wrongAns3;
         public bool hasImage;
         public Texture Image;
-
+        //creates question object without image
         public Question(string question, bool hasImage, string rightAns, string wrongAns1, string wrongAns2, string wrongAns3)
         {
             this.question = question;
@@ -117,7 +117,7 @@ public class QuizControl : MonoBehaviour
             this.wrongAns3 = wrongAns3;
             this.Image = null;
         }
-
+        //creates test qusetion object
         public Question(string question, bool hasImage, string rightAns, string wrongAns1, string wrongAns2, string wrongAns3, string imageName)
         {
             this.question = question;
@@ -132,6 +132,7 @@ public class QuizControl : MonoBehaviour
         // Code that parses JJSON (JARON's JSON)
         public static ArrayList Parse(string input)
         {
+
             ArrayList result = new ArrayList();
 
             foreach(string qText in input.Split('{', '}'))
@@ -177,6 +178,7 @@ public class QuizControl : MonoBehaviour
                             }
                         }
                     }
+                    //checks image path and boolean 
                     if (elements[1] == "" || elements[1] == null) elements[1] = "False";
                     if(elements[6] == "" || elements[6] == null)
                     {
