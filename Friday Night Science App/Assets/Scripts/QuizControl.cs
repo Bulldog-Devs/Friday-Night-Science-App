@@ -29,7 +29,8 @@ public class QuizControl : MonoBehaviour {
 
         SetupQuestion(Question.Parse(Resources.Load<TextAsset>("Questions/" + quizSelect).text));
     }
-
+    
+    // Initializes the Questions with buttons attached. Displays question and corresponding answers.
     private void SetupQuestion(ArrayList questions)
     {
         Question q = (Question) questions[Random.Range(0, questions.Count - 1)];
@@ -60,6 +61,7 @@ public class QuizControl : MonoBehaviour {
         if (questions.Count != 0) tryAgain.onClick.AddListener(delegate { SetupQuestion(questions); });
     }
 
+    // 
     public void HandleButton(ArrayList buttons, ArrayList questions, string ans, bool correct)
     {
         Button btn = (Button)buttons[Random.Range(0, buttons.Count - 1)];
@@ -96,6 +98,7 @@ public class QuizControl : MonoBehaviour {
         completionPanel.SetActive(true);
     }
 
+    // Questions Object |  Stores questions data such as: Available Images, Questions w/ Right and wrongs answers
     public class Question
     {
         public string question, rightAns, wrongAns1, wrongAns2, wrongAns3;
@@ -124,6 +127,7 @@ public class QuizControl : MonoBehaviour {
             this.Image = Resources.Load<Texture>("Icons/QuizImages/" + imageName);
         }
 
+        // Code that parses JJSON (JARON's JSON)
         public static ArrayList Parse(string input)
         {
             ArrayList result = new ArrayList();
