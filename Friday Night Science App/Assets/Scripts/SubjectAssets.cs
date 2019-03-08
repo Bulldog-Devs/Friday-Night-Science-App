@@ -4,7 +4,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SubjectAssets : MonoBehaviour {
+public class SubjectAssets : MonoBehaviour 
+{
 
     public Texture astrIcon, biolIcon, chemIcon, geolIcon, induIcon, mathIcon, physIcon, astrBack, biolBack, chemBack, geolBack, induBack, mathBack, physBack;
     public ArrayList subjects = new ArrayList();
