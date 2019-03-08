@@ -24,9 +24,10 @@ public class QuizSelect : MonoBehaviour
         string QRInput = PlayerPrefs.GetString(game.QRInput);
         //Set the subject method within the subject object within subject assets class equal to null 
         SubjectAssets.Subject subject = null;
-        //Foreach 
+        //Foreach loop on subj located in the sobjects object located in the subjectAssets class
         foreach (SubjectAssets.Subject subj in subjectAssets.subjects)
         {
+            //
             if (subj.ID.Equals(QRInput.Substring(0,4))) subject = subj;
         } 
                                                                                                              
