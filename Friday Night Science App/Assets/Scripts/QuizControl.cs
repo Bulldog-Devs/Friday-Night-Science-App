@@ -19,7 +19,8 @@ public class QuizControl : MonoBehaviour
     private string quizSelect;
     
     // Use this for initialization
-	void Start () {
+	void Start ()
+    {
         quizSelect = PlayerPrefs.GetString(game.QuizSelect);
 
         subjectAssets.Start();
