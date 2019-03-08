@@ -4,7 +4,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Game : MonoBehaviour {
+public class Game : MonoBehaviour 
+{
 
     //Names of Scenes
     public string QRScene = "QRReader";

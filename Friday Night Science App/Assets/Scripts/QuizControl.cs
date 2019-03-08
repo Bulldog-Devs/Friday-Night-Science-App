@@ -5,7 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizControl : MonoBehaviour {
+public class QuizControl : MonoBehaviour 
+{
 
     public Game game;
     public SubjectAssets subjectAssets;

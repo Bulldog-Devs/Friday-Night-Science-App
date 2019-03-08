@@ -4,7 +4,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizSelect : MonoBehaviour {
+public class QuizSelect : MonoBehaviour 
+{
 
     public Game game;
     public SubjectAssets subjectAssets;

@@ -7,7 +7,8 @@ using System;
 using UnityEngine.Events;
 using ZXing;
 
-public class QRControl : MonoBehaviour {
+public class QRControl : MonoBehaviour
+ {
 
     public Button mapButton;
     public Button manualToggle;
@@ -22,7 +23,8 @@ public class QRControl : MonoBehaviour {
     public AspectRatioFitter fit;
     public Game game;
 	
-	void Start () {
+	void Start () 
+    {
         //Add ActionListeners to buttons
         mapButton.onClick.AddListener(delegate { backCam.Stop(); game.LoadScene(game.MapScene); });
         manualToggle.onClick.AddListener(delegate { manualPanel.SetActive(true); });
@@ -70,7 +72,8 @@ public class QRControl : MonoBehaviour {
             camAvailable = true;
         }
 
-        if (!camAvailable) {
+        if (!camAvailable)
+         {
             Debug.Log("Trying to turn on the camera...");
             backCam.Play();
             return;
