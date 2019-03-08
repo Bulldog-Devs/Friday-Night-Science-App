@@ -4,9 +4,10 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
+//initialize QuizSelect class extending MonoBehaviour SuperClass
 public class QuizSelect : MonoBehaviour 
 {
-
+    //Initialize fields 
     public Game game;
     public SubjectAssets subjectAssets;
     public GameObject buttonGroup, scavengerPanel;
@@ -16,14 +17,19 @@ public class QuizSelect : MonoBehaviour
     public ArrayList quizSubjs = new ArrayList() { "Biology", "Chemistry", "Industrial", "Mathematics", "Physics" };
     public ArrayList scavengerSubjs = new ArrayList() { "Astronomy", "Geology" };
 
+    //Initialize void start method 
     void Start()
     {
+        //Set QRInput string equal to the QRInput from the game class located in playerPrefs
         string QRInput = PlayerPrefs.GetString(game.QRInput);
+        //Set the subject method within the subject object within subject assets class equal to null 
         SubjectAssets.Subject subject = null;
+        //Foreach 
         foreach (SubjectAssets.Subject subj in subjectAssets.subjects)
         {
             if (subj.ID.Equals(QRInput.Substring(0,4))) subject = subj;
-        }
+        } 
+                                                                                                             
         try
         {
             SubjectAssets.Demo demo = JsonUtility.FromJson<SubjectAssets.Demo>(Resources.Load<TextAsset>("Demos/" + QRInput).text);
