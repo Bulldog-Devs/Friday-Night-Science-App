@@ -61,7 +61,7 @@ public class QuizControl : MonoBehaviour {
         if (questions.Count != 0) tryAgain.onClick.AddListener(delegate { SetupQuestion(questions); });
     }
 
-    // 
+    //hello world
     public void HandleButton(ArrayList buttons, ArrayList questions, string ans, bool correct)
     {
         Button btn = (Button)buttons[Random.Range(0, buttons.Count - 1)];
