@@ -4,14 +4,11 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Create SubjectAssets Class extendinf the MonoBehaviour Superclass 
-public class SubjectAssets : MonoBehaviour 
-{
-    //Initialize fields 
+public class SubjectAssets : MonoBehaviour {
+
     public Texture astrIcon, biolIcon, chemIcon, geolIcon, induIcon, mathIcon, physIcon, astrBack, biolBack, chemBack, geolBack, induBack, mathBack, physBack;
     public ArrayList subjects = new ArrayList();
 
-    //Initialize Start method 
     public void Start()
     {
         //Add Subjects
@@ -24,18 +21,15 @@ public class SubjectAssets : MonoBehaviour
         subjects.Add(new Subject("Physics", "phys", physIcon, physBack, true));
     }
 
-    //Initialize Subject object 
+    // Contains information about each subject. | Icon/Background/Name etc
     public class Subject
     {
-        //Initialize object fields  
         public string name, ID;
         public bool hasDemo;
         public Texture icon, background;
 
-        //Initialize Subject Constructor  
         public Subject(string name, string ID, Texture icon, Texture background, bool hasDemo)
         {
-            //Set all "recceived" data to the respective field 
             this.name = name;
             this.ID = ID;
             this.icon = icon;
@@ -43,10 +37,8 @@ public class SubjectAssets : MonoBehaviour
             this.hasDemo = hasDemo;
         }
 
-        //Initialize Second Subject Constructor 
         public Subject(string name, string ID, Texture icon, Texture background)
         {
-            //Set all "recceived" data to the respective field 
             this.name = name;
             this.ID = ID;
             this.icon = icon;
@@ -55,10 +47,8 @@ public class SubjectAssets : MonoBehaviour
         }
     }
 
-    //Initialize Demo object 
     public class Demo
     {
-        //Declare fields 
         public string name, description, customImage;
         public bool hasQuiz;
     }
