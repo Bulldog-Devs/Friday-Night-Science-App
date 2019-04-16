@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour {
 
     //Names of Scenes
+    public string MainMenu = "MainMenu";
     public string QRScene = "QRReader";
     public string QuizScene = "QuizMain";
     public string QuizSelectScene = "QuizSelect";
     public string MapScene = "MapMain";
+    public string RoomScene = "RoomMain";
     //Identifiers for PlayerPrefs
     public string QRInput = "QRInput";
     public string QuizSelect = "QuizSelect";
@@ -31,8 +33,25 @@ public class Game : MonoBehaviour {
         LoadScene(QuizSelectScene);
     }
 
+    public void enterQRInput(UnityEngine.UI.Text input)
+    {
+        enterInput(QRInput, input.text);
+        LoadScene(QuizSelectScene);
+    }
+
+    public void enterLocation(string input)
+    {
+        enterInput("Location", input);
+        LoadScene(RoomScene);
+    }
+
     public void saveQuizResult(string quizID)
     {
 
+    }
+
+    public void openKeyboard()
+    {
+        TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
     }
 }

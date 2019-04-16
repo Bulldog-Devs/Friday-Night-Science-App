@@ -10,12 +10,13 @@ public class QuizControl : MonoBehaviour {
     public Game game;
     public SubjectAssets subjectAssets;
     public Text question, result;
-    public GameObject buttonGroup, tryAgainGroup, completionPanel;
-    public Button button1, button2, button3, button4, tryAgain;
+    public GameObject buttonGroup, nextQuestionGroup, completionPanel;
+    public Button button1, button2, button3, button4, nextQuestion;
     public RawImage background, subjectIcon, questionImage;
     private SubjectAssets.Subject subject;
 
     private string quizSelect;
+    private int rightAnswers = 0, attemptedQuestions = 0;
     
     // Use this for initialization
 	void Start () {
@@ -27,6 +28,8 @@ public class QuizControl : MonoBehaviour {
         background.texture = subject.background;
         subjectIcon.texture = subject.icon;
 
+        rightAnswers = 0;
+        attemptedQuestions = 0;
         SetupQuestion(Question.Parse(Resources.Load<TextAsset>("Questions/" + quizSelect).text));
     }
 
@@ -34,7 +37,7 @@ public class QuizControl : MonoBehaviour {
     {
         Question q = (Question) questions[Random.Range(0, questions.Count - 1)];
         questions.Remove(q);
-        tryAgainGroup.SetActive(false);
+        nextQuestionGroup.SetActive(false);
 
         question.text = q.question;
         if (q.hasImage)
@@ -52,48 +55,84 @@ public class QuizControl : MonoBehaviour {
         buttons.Add(button3);
         buttons.Add(button4);
 
-        HandleButton(buttons, questions, q.rightAns, true);
-        HandleButton(buttons, questions, q.wrongAns1, false);
-        HandleButton(buttons, questions, q.wrongAns2, false);
-        HandleButton(buttons, questions, q.wrongAns3, false);
+        HandleButton(buttons, q.rightAns, true);
+        HandleButton(buttons, q.wrongAns1, false);
+        HandleButton(buttons, q.wrongAns2, false);
+        HandleButton(buttons, q.wrongAns3, false);
 
-        if (questions.Count != 0) tryAgain.onClick.AddListener(delegate { SetupQuestion(questions); });
+        nextQuestion.onClick.AddListener(delegate { SetupQuestion(questions); });
     }
 
-    public void HandleButton(ArrayList buttons, ArrayList questions, string ans, bool correct)
+    public void HandleButton(ArrayList buttons, string ans, bool correct)
     {
         Button btn = (Button)buttons[Random.Range(0, buttons.Count - 1)];
         buttons.Remove(btn);
         btn.GetComponentInChildren<Text>().text = ans;
         btn.image.color = Color.white;
         btn.onClick.RemoveAllListeners();
-        if (correct) btn.onClick.AddListener(delegate { btn.image.color = Color.green; Answer(true); });
+        if (correct) btn.onClick.AddListener(delegate {
+            btn.image.color = Color.green;
+            nextQuestionGroup.SetActive(true);
+            Answer(true);
+        });
         else
         {
             btn.onClick.AddListener(delegate
             {
-                btn.image.color = Color.red; tryAgainGroup.SetActive(true);
-                if (questions.Count == 0) Answer(false);
+                btn.image.color = Color.red;
+                nextQuestionGroup.SetActive(true);
+                Answer(false);
             });
         }
     }
 
     public void Answer(bool correct)
     {
-        if(correct)
+        attemptedQuestions++;
+        if (correct) { rightAnswers++; }
+
+        button1.onClick.RemoveAllListeners();
+        button2.onClick.RemoveAllListeners();
+        button3.onClick.RemoveAllListeners();
+        button4.onClick.RemoveAllListeners();
+
+        if (rightAnswers == 2)
         {
-            using (StreamWriter w = File.AppendText("Assets/Resources/completedQuizes.txt"))
+            if(rightAnswers >= 2)
             {
-                w.WriteLine(quizSelect);
-                w.Close();
+                using (StreamWriter w = File.AppendText("Assets/Resources/completedQuizes.txt"))
+                {
+                    w.WriteLine(quizSelect);
+                    w.Close();
+                }
+                result.text = "Congratulations! You Passed The Quiz For This Demo! \n Keep Going And Complete The Next Demo!";
+                questionImage.texture = null;
+                question.text = "";
+                completionPanel.SetActive(true);
+                buttonGroup.SetActive(false);
+                nextQuestionGroup.SetActive(false);
             }
-            result.text = "Congratulations! You Passed The Quiz For This Demo! \n Keep Going And Complete The Next Demo!";
+        }
+        else if(attemptedQuestions - rightAnswers == 2)
+        {
+            result.text = "Too Bad! You Missed Too Many Questions... \n Take Another Look At The Demo And Try Again!";
+            questionImage.texture = null;
+            question.text = "";
+            completionPanel.SetActive(true);
+            buttonGroup.SetActive(false);
+            nextQuestionGroup.SetActive(false);
         }
         else
         {
-            result.text = "Too Bad! You Missed Too Many Questions... \n Take Another Look At The Demo And Try Again!";
+            if(correct)
+            {
+                question.text = question.text + "\nThat's the Correct Answer!\n Get Another One Right to Pass the Quiz!";
+            }
+            else
+            {
+                question.text = question.text + "\nThat's the Wrong Answer...\n Try again";
+            }
         }
-        completionPanel.SetActive(true);
     }
 
     public class Question

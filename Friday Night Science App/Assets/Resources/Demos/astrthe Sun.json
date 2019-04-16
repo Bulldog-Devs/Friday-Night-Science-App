@@ -1,0 +1,8 @@
+{
+  "name" : "The Sun",
+  "description" : "You have found the Sun!\nKeep exploring for more Planets",
+  "identifier" : "astrthe Sun",
+  "hasQuiz" : false,
+  "customImage" : "the Sun",
+  "location" : "Solar System"
+}

@@ -1,0 +1,8 @@
+{
+  "name" : "Venus",
+  "description" : "You have found Venus!\nKeep exploring for more Planets",
+  "identifier" : "astrVenus",
+  "hasQuiz" : false,
+  "customImage" : "Venus",
+  "location" : "Solar System"
+}

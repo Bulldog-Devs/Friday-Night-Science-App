@@ -21,6 +21,7 @@ public class SubjectAssets : MonoBehaviour {
         subjects.Add(new Subject("Physics", "phys", physIcon, physBack, true));
     }
 
+    // Contains information about each subject. | Icon/Background/Name etc
     public class Subject
     {
         public string name, ID;
@@ -48,7 +49,7 @@ public class SubjectAssets : MonoBehaviour {
 
     public class Demo
     {
-        public string name, description, customImage;
+        public string name, description, customImage, location, identifier;
         public bool hasQuiz;
     }
 }

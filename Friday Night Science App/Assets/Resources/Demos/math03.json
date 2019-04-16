@@ -1,5 +1,6 @@
 {
   "name" : "Math Demo 3",
   "description" : "The Third Demo for the Math Department",
-  "hasQuiz" : false
+  "hasQuiz" : false,
+  "location" : "Not Solar System"
 }
