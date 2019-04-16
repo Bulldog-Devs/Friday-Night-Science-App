@@ -5,7 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizControl : MonoBehaviour {
+public class QuizControl : MonoBehaviour 
+{
 
     public Game game;
     public SubjectAssets subjectAssets;
@@ -19,7 +20,8 @@ public class QuizControl : MonoBehaviour {
     private int rightAnswers = 0, attemptedQuestions = 0;
     
     // Use this for initialization
-	void Start () {
+	void Start ()
+    {
         quizSelect = PlayerPrefs.GetString(game.QuizSelect);
 
         subjectAssets.Start();
@@ -32,7 +34,8 @@ public class QuizControl : MonoBehaviour {
         attemptedQuestions = 0;
         SetupQuestion(Question.Parse(Resources.Load<TextAsset>("Questions/" + quizSelect).text));
     }
-
+    
+    // Initializes the Questions with buttons attached. Displays question and corresponding answers.
     private void SetupQuestion(ArrayList questions)
     {
         Question q = (Question) questions[Random.Range(0, questions.Count - 1)];
@@ -135,12 +138,13 @@ public class QuizControl : MonoBehaviour {
         }
     }
 
+    // Questions Object |  Stores questions data such as: Available Images, Questions w/ Right and wrongs answers
     public class Question
     {
         public string question, rightAns, wrongAns1, wrongAns2, wrongAns3;
         public bool hasImage;
         public Texture Image;
-
+        //creates question object without image
         public Question(string question, bool hasImage, string rightAns, string wrongAns1, string wrongAns2, string wrongAns3)
         {
             this.question = question;
@@ -151,7 +155,7 @@ public class QuizControl : MonoBehaviour {
             this.wrongAns3 = wrongAns3;
             this.Image = null;
         }
-
+        //creates test qusetion object
         public Question(string question, bool hasImage, string rightAns, string wrongAns1, string wrongAns2, string wrongAns3, string imageName)
         {
             this.question = question;
@@ -163,8 +167,10 @@ public class QuizControl : MonoBehaviour {
             this.Image = Resources.Load<Texture>("Icons/QuizImages/" + imageName);
         }
 
+        // Code that parses JJSON (JARON's JSON)
         public static ArrayList Parse(string input)
         {
+
             ArrayList result = new ArrayList();
 
             foreach(string qText in input.Split('{', '}'))
@@ -210,6 +216,7 @@ public class QuizControl : MonoBehaviour {
                             }
                         }
                     }
+                    //checks image path and boolean 
                     if (elements[1] == "" || elements[1] == null) elements[1] = "False";
                     if(elements[6] == "" || elements[6] == null)
                     {
