@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 82064333}
   - component: {fileID: 82064332}
   - component: {fileID: 82064335}
+  - component: {fileID: 82064336}
   m_Layer: 5
   m_Name: Solar System
   m_TagString: Untagged
@@ -149,8 +150,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 294.5, y: -50}
-  m_SizeDelta: {x: 589, y: 100}
+  m_AnchoredPosition: {x: 300, y: -50}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82064332
 MonoBehaviour:
@@ -198,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: -1
+  m_MinWidth: 600
   m_MinHeight: 100
   m_PreferredWidth: -1
   m_PreferredHeight: -1
@@ -257,6 +258,22 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &82064336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82064330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c2289365f2cf7478db773cb97e1b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleBase: {fileID: 1357118723}
+  doWidthPercent: 1
+  widthPercent: 100
+  doHeightPercent: 0
+  heightPercent: 0
 --- !u!1 &122020695
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +284,7 @@ GameObject:
   - component: {fileID: 122020696}
   - component: {fileID: 122020698}
   - component: {fileID: 122020697}
+  - component: {fileID: 122020699}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -326,6 +344,22 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122020695}
   m_CullTransparentMesh: 0
+--- !u!114 &122020699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 122020695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c2289365f2cf7478db773cb97e1b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleBase: {fileID: 1896386294}
+  doWidthPercent: 1
+  widthPercent: 100
+  doHeightPercent: 1
+  heightPercent: 30
 --- !u!1 &277950692
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,8 +396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 294.5, y: -170}
-  m_SizeDelta: {x: 589, y: 100}
+  m_AnchoredPosition: {x: 300, y: -170}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &277950694
 MonoBehaviour:
@@ -594,8 +628,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 294.5, y: -290}
-  m_SizeDelta: {x: 589, y: 100}
+  m_AnchoredPosition: {x: 300, y: -290}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477452517
 MonoBehaviour:
@@ -836,6 +870,7 @@ GameObject:
   - component: {fileID: 572194497}
   - component: {fileID: 572194496}
   - component: {fileID: 572194495}
+  - component: {fileID: 572194498}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -859,9 +894,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -199.3}
-  m_SizeDelta: {x: 0, y: -398.7}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 255.2}
+  m_SizeDelta: {x: 0, y: 510.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572194495
 MonoBehaviour:
@@ -909,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1357118724}
-  m_Horizontal: 0
+  m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -928,6 +963,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &572194498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572194493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c2289365f2cf7478db773cb97e1b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleBase: {fileID: 1896386294}
+  doWidthPercent: 1
+  widthPercent: 100
+  doHeightPercent: 1
+  heightPercent: 70
 --- !u!1 &659985816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1346,7 @@ GameObject:
   - component: {fileID: 1357118724}
   - component: {fileID: 1357118726}
   - component: {fileID: 1357118725}
+  - component: {fileID: 1357118727}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1321,7 +1373,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.0000005137114}
-  m_SizeDelta: {x: 0, y: 340}
+  m_SizeDelta: {x: 11, y: 340}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1357118725
 MonoBehaviour:
@@ -1356,8 +1408,24 @@ MonoBehaviour:
   m_Spacing: 20
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
+--- !u!114 &1357118727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1357118723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c2289365f2cf7478db773cb97e1b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleBase: {fileID: 1762164416}
+  doWidthPercent: 1
+  widthPercent: 100
+  doHeightPercent: 0
+  heightPercent: 0
 --- !u!1 &1762164416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,6 +1681,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1845681390}
+  - component: {fileID: 1845681394}
+  - component: {fileID: 1845681395}
   - component: {fileID: 1845681393}
   - component: {fileID: 1845681392}
   - component: {fileID: 1845681391}
@@ -1728,6 +1798,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1845681389}
   m_CullTransparentMesh: 0
+--- !u!114 &1845681394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845681389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c2289365f2cf7478db773cb97e1b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleBase: {fileID: 1896386294}
+  doWidthPercent: 1
+  widthPercent: 20
+  doHeightPercent: 0
+  heightPercent: 0
+--- !u!114 &1845681395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845681389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a76dc96bfc3ca34da7a67a1f51e8194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightAffectsWidth: 0
+  heightRatio: 1
+  widthRatio: 1
 --- !u!1 &1852055676
 GameObject:
   m_ObjectHideFlags: 0
